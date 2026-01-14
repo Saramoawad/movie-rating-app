@@ -17,6 +17,23 @@
       "rating": 4,
       "genres": ["Drama"],
       "inTheaters": true
+    },
+    {
+      "id": 3,
+      "name": "Inception",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjOL8VgCdZxmZdpATCHA0U17oSd8ELcJ74nA&s",
+      "genres": ["Drama"],
+      "inTheaters": true
+    },
+    {
+      "id": 4,
+      "name": "Interstellar",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-0Y8yNJdvmxhT4l4k5BTawq13SZK59QFfaQ&s",
+      "rating": 4,
+      "genres": ["Sience Fiction"],
+      "inTheaters": true
     }
   ]
 }

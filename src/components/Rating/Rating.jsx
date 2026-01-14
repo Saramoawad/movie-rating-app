@@ -1,4 +1,4 @@
 function Rating(){
-    return<></>
+    return<>5 stars</>
 }
 export default Rating;
