@@ -6,12 +6,14 @@ import Loader from "../../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import MovieForm from "../../components/MovieForm/MovieForm";
-
+import Filter from "../../components/Filter/Filter";
 function MoviesList() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingMovie, setEditingMovie] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState("All");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,6 +42,14 @@ function MoviesList() {
     setShowForm(false);
     setEditingMovie(null);
   };
+
+  const filteredMovies =
+  selectedGenre === "All"
+    ? movies
+    : movies.filter(movie =>
+        movie.genres.includes(selectedGenre)
+      );
+
 
   const handleSubmitForm = (movieData) => {
     if (editingMovie) {
@@ -74,10 +84,10 @@ function MoviesList() {
           onCancel={handleCloseForm}
         />
       )}
-      <NavBar movies={movies} isLoading={isLoading} onAddMovie={handleAddMovie} />
+      <NavBar movies={movies} isLoading={isLoading} onAddMovie={handleAddMovie} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
       {isLoading && <Loader />}
       <div className={styles.list}>
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <Card
             movie={movie}
             setMovies={setMovies}
