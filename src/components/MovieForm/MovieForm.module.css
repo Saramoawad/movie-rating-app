@@ -1,0 +1,78 @@
+.formContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 26, 0.7);
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgb(27, 36, 49);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+
+input,
+textarea,
+select {
+  background-color: rgb(20, 28, 38);
+  border: 1px solid #2f3b4a;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1fa7df;
+}
+
+textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+select[multiple] {
+  height: 90px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formAction {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.cancel {
+  background-color: #444;
+}
+
+.update {
+  background-color: #1fa7df;
+}
+
+button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}

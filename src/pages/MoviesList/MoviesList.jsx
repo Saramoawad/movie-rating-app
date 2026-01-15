@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../../api/movieApi";
+import { getMovies, addMovie, editMovie } from "../../api/movieApi";
 import Card from "../../components/Card/Card";
 import styles from "./MoviesList.module.css";
 import Loader from "../../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
+import MovieForm from "../../components/MovieForm/MovieForm";
+
 function MoviesList() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [editingMovie, setEditingMovie] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     getMovies()
       .then((res) => {
@@ -21,17 +26,68 @@ function MoviesList() {
       });
   }, []);
 
+  const handleAddMovie = () => {
+    setEditingMovie(null);
+    setShowForm(true);
+  };
+
+  const handleEditMovie = (movie) => {
+    setEditingMovie(movie);
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+    setEditingMovie(null);
+  };
+
+  const handleSubmitForm = (movieData) => {
+    if (editingMovie) {
+      // Update existing movie
+      editMovie(editingMovie.id, movieData)
+        .then((res) => {
+          setMovies(movies.map((m) => (m.id === editingMovie.id ? res.data : m)));
+          handleCloseForm();
+        })
+        .catch((err) => {
+          console.error("Error updating movie:", err);
+        });
+    } else {
+      // Add new movie
+      addMovie(movieData)
+        .then((res) => {
+          setMovies([...movies, res.data]);
+          handleCloseForm();
+        })
+        .catch((err) => {
+          console.error("Error adding movie:", err);
+        });
+    }
+  };
+
   return (
     <>
-   <NavBar movies={movies} isLoading={isLoading}/>
+      {showForm && (
+        <MovieForm
+          initialMovie={editingMovie}
+          onSubmit={handleSubmitForm}
+          onCancel={handleCloseForm}
+        />
+      )}
+      <NavBar movies={movies} isLoading={isLoading} onAddMovie={handleAddMovie} />
       {isLoading && <Loader />}
       <div className={styles.list}>
-        {" "}
         {movies.map((movie) => (
-          <Card movie={movie} setMovies={setMovies} key={movie.id} />
+          <Card
+            movie={movie}
+            setMovies={setMovies}
+            onEdit={handleEditMovie}
+            key={movie.id}
+          />
         ))}
       </div>
     </>
   );
 }
+
 export default MoviesList;
