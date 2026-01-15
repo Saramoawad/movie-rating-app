@@ -1,7 +1,21 @@
 import styles from "./Card.module.css";
 import Rating from "../Rating/Rating";
-
+import { deleteMovie } from "../../api/movieApi";
 function Card({ movie, setMovies, onEdit }) {
+  
+    const handleDelete = () => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete "${movie.name}"?`
+    );
+
+    if (!confirmDelete) return;
+
+    deleteMovie(movie.id).then(() => {
+      setMovies(prev =>
+        prev.filter(m => m.id !== movie.id)
+      );
+    });
+  }
   return (
     <div className={styles.card}>
       <div>
@@ -29,7 +43,7 @@ function Card({ movie, setMovies, onEdit }) {
             <i className="fa-solid fa-pen"></i>
           </button>
           <button className={styles.deleteBtn} title="Delete Movie">
-            <i className="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash" onClick={handleDelete}></i>
           </button>
         </div>
       </div>

@@ -57,17 +57,6 @@
       ],
       "inTheaters": true,
       "rating": 1
-    },
-    {
-      "id": "9f41",
-      "name": "Coco",
-      "description": "Animation film",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHP-edhKcqOOCEmem7OYfgsms_h3dulKYn2g&s",
-      "genres": [
-        "Comedy"
-      ],
-      "inTheaters": false,
-      "rating": 1
     }
   ]
 }

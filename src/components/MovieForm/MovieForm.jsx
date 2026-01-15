@@ -2,6 +2,29 @@ import { useState } from "react";
 import styles from "./MovieForm.module.css";
 
 function MovieForm({ initialMovie, onSubmit, onCancel }) {
+  const [errors, setErrors] = useState({});
+
+  // validation
+  const validate = () => {
+  const newErrors = {};
+
+  if (!movie.name.trim()) {
+    newErrors.name = "Movie name is required";
+  }
+
+  if (!movie.image.trim()) {
+    newErrors.image = "Image URL is required";
+  }
+
+  if (movie.genres.length === 0) {
+    newErrors.genres = "Select at least one genre";
+  }
+
+  setErrors(newErrors);
+
+  return Object.keys(newErrors).length === 0;
+};
+
   const [movie, setMovie] = useState({
     name: initialMovie?.name || "",
     description: initialMovie?.description || "",
@@ -29,6 +52,7 @@ function MovieForm({ initialMovie, onSubmit, onCancel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+     if (!validate()) return;
     onSubmit(movie);
   };
 
@@ -43,7 +67,7 @@ function MovieForm({ initialMovie, onSubmit, onCancel }) {
           value={movie.name}
           onChange={handleChange}
         />
-
+          {errors.name && <p className={styles.error}>{errors.name}</p>}
         <label>Description</label>
         <textarea
           name="description"
@@ -60,6 +84,8 @@ function MovieForm({ initialMovie, onSubmit, onCancel }) {
           type="text"
           placeholder="Image URL"
         />
+        {errors.image && <p className={styles.error}>{errors.image}</p>}
+
 
         <label>Genres</label>
         <select
@@ -68,11 +94,14 @@ function MovieForm({ initialMovie, onSubmit, onCancel }) {
           value={movie.genres}
           onChange={handleChange}
         >
+          
           <option value="Drama">Drama</option>
           <option value="Crime">Crime</option>
           <option value="Action">Action</option>
           <option value="Comedy">Comedy</option>
         </select>
+        {errors.genres && <p className={styles.error}>{errors.genres}</p>}
+
 
         <label className={styles.checkbox}>
           <input
