@@ -57,6 +57,17 @@
       ],
       "inTheaters": true,
       "rating": 1
+    },
+    {
+      "id": "7fe5",
+      "name": "mission imposible ",
+      "description": "Action Film",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6YkJDubvXD0EXdztmNHBEaKbNw9s8yFwgww&s",
+      "genres": [
+        "Action"
+      ],
+      "inTheaters": true,
+      "rating": 4
     }
   ]
 }

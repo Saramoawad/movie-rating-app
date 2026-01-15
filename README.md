@@ -3,7 +3,8 @@
 
  Movie Rating App using React . You can use a JSON server for handling movie data. The app will allow users to view, add, edit, and delete movies, as well as interact with the movie rating system.
 <!-- Try my app live at vercel -->
-https://movie-rating-app-phi.vercel.app/
+step 1- run json server using npm start
+step 2-click this link : https://movie-rating-app-phi.vercel.app/
 
 <!-- --------- -->
 ## Run Project
@@ -12,7 +13,7 @@ npm install
 npm run dev
 <!-- ---- -->
 ## Run json server
-npx json-server --watch db.json --port 3000
+npm start
 
 
 <!-- ------------- -->
