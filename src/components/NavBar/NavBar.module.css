@@ -1,23 +1,62 @@
-.btn{
+.btn {
     padding: 5px 10px;
     color: #fff;
-    background-color:rgb(83, 83, 222) ;
+    background-color: rgb(83, 83, 222);
     border-radius: 7px;
     border: none;
     margin-right: 5px;
     cursor: pointer;
 
-    
+
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-content: space-between;
     width: 80%;
     margin: auto;
     color: #fff;
     padding: 20px;
+    align-items: center;
+    flex-wrap: wrap;
 }
-.calc{
+
+.calc {
     display: flex;
     gap: 20px;
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        width: 95%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .calc {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+
+    .navbar>div:last-child {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navbar>div:last-child input,
+    .navbar>div:last-child select,
+    .navbar>div:last-child button {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
 }

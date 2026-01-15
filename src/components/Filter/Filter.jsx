@@ -1,6 +1,6 @@
 function Filter({ selectedGenre, setSelectedGenre }) {
   return (
-    <select
+    <select style={{marginRight: '5px'}}
       value={selectedGenre}
       onChange={(e) => setSelectedGenre(e.target.value)}
     >

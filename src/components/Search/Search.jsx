@@ -1,5 +1,5 @@
 import styles from './Search.module.css'
-function Search(){
-return <input type="text" className={styles.searchInput}/>
+function Search({searchQuery,setSearchQuery}){
+return <input type="text" className={styles.searchInput} placeholder='Search...' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
 }
 export default Search;

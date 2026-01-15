@@ -21,6 +21,12 @@
   gap: 12px;
 }
 
+@media (max-width: 576px) {
+  .form {
+    width: 90%;
+  }
+}
+
 
 
 input,
@@ -76,6 +82,7 @@ button {
   color: white;
   cursor: pointer;
 }
+
 .error {
   color: red;
   font-size: 12px;

@@ -18,3 +18,15 @@
 .rating{
   display: flex;
 }
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .rating {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .rating {
+    font-size: 14px;
+  }
+}

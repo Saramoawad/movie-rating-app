@@ -1,7 +1,7 @@
 import Search from "../Search/Search";
 import styles from './NavBar.module.css'
 import Filter from "../Filter/Filter";
-function NavBar({ movies, isLoading, onAddMovie ,selectedGenre,setSelectedGenre}) {
+function NavBar({ movies, isLoading, onAddMovie ,selectedGenre,setSelectedGenre ,searchQuery,setSearchQuery}) {
   const avgRating = movies && movies.reduce((acc, movie) => acc + movie.rating, 0) / movies.length;
 
   return (
@@ -12,7 +12,7 @@ function NavBar({ movies, isLoading, onAddMovie ,selectedGenre,setSelectedGenre}
       </div>
       <div>
         <Filter selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-        <Search />
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <button className={styles.btn} onClick={onAddMovie}>Add Movie</button>
       </div>
     </nav>
