@@ -1,0 +1,23 @@
+.btn{
+    padding: 5px 10px;
+    color: #fff;
+    background-color:rgb(83, 83, 222) ;
+    border-radius: 7px;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+
+    
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    color: #fff;
+    padding: 20px;
+}
+.calc{
+    display: flex;
+    gap: 20px;
+}

@@ -5,6 +5,7 @@
   background: #fff;
   width: 32%;
   margin-bottom: 10px;
+  position: relative;
   
 
 }
@@ -32,4 +33,18 @@
 }
 .cardContent{
   padding: 15px;
+}
+.ratingI{
+  color: rgb(230, 163, 3);
+  font-size: 40px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+}
+.rateNum{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  color: #fff;
 }

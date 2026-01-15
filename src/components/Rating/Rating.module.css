@@ -1,0 +1,20 @@
+.stars {
+  cursor: pointer;
+}
+
+.stars span {
+  color: #ccc;
+  margin-right: 4px;
+  
+}
+
+.active {
+  color: gold;
+}
+.stars i:hover{
+    color: gold;
+
+}
+.rating{
+  display: flex;
+}
